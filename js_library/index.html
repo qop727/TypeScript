@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qop's library</title>
+    <style>
+        body {
+            font-family: Lexend, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            background-image: url('backgroung.png'); background-size:40%; background-blend-mode: difference; background-position: center; background-repeat: no-repeat;
+            color: #dcdcdc;
+        }
+        header {
+            color: #dcdcdc;
+            padding: 0rem 0;
+            text-align: center;
+        }
+        main {
+            padding: 15rem;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            margin-top: auto;
+            color: #dcdcdc;
+        }
+    </style>
+    <script>
+        async function saveBook() {
+            const bookName = document.getElementById('bookName').value;
+            if (!bookName) {
+                alert("Insert name of book!");
+                return;
+            }
+
+            const response = await fetch('/add-book', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: bookName }),
+            });
+
+            if (response.ok) {
+                alert("Book saved successfully!");
+                document.getElementById('bookName').value = '';
+            } else {
+                alert("Error saving name of book.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to my first library</h1>
+    </header>
+    <main>
+        <p>Insert name of book you want to save:</br></br></p>
+        <input type="text" id="bookName" placeholder="Insert name of book..." />
+        <button onclick="saveBook()">Save</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 qop's library</p>
+    </footer>
+</body>
+</html>
