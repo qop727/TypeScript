@@ -1,0 +1,42 @@
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(0, 132, 255);
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <p id="text">Ahoj!</p>
+    <button onclick="zvetsiText()">Zvetsi text</button>
+    <button onclick="zmensiText()">Zmensi text</button>
+
+    <script>
+        function zvetsiText() {
+        document.getElementById("text").style.fontSize = "45px";
+        }
+
+        function zmensiText() {
+        document.getElementById("text").style.fontSize = "30px";
+        }
+    </script>
+
+</body>
+</html>
